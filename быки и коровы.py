@@ -11,7 +11,8 @@ class Example(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
-
+        
+        
     def initUI(self):
         start_layout = QVBoxLayout()
 
@@ -48,6 +49,8 @@ class Example(QWidget):
         self._elems["btn1"] = btn1
         self._elems["btn2"] = btn2
         self._elems["layout"] = start_layout
+        
+        
 
 
     def hello(self):
@@ -67,6 +70,15 @@ class Example(QWidget):
         btn3.clicked.connect(self.get_try)
 
         self._elems["layout"].addWidget(btn3)
+        
+        self.label_b = self.QLabel()
+        self.label_b.setText('Быки')
+        self.label_b.move(50,150)
+        
+        self.label_k = self.QLabel()
+        self.label_k.setText('Коровы')
+        self.label_k.move(50, 160)        
+        
 
         self.update()
 
@@ -93,6 +105,16 @@ class Example(QWidget):
             print('Вы угадали!')
         else:
             print(bik, korova)
+        self.bik = bik
+        self.korova = korova
+        
+    def counting_b(self):
+        c_bik = self.bik
+        self.label_b.setText('Быки:', c_bik)
+    def counting_k(self):
+        c_korova = self.korova
+        self.label_k.setText('Коровы:', c_korova)
+        
 
 
 if __name__ == '__main__':
